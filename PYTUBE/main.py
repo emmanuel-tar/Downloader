@@ -9,7 +9,7 @@ def start_download():
         ytObject = YouTube(ytLink, on_progress_callback=on_progress)
         video = ytObject.streams.get_highest_resolution()
 
-        title.configure(text=ytObject.title,text_color="white")
+        title.configure(text=ytObject.title,text_color="green")
         finishLabel.configure(text="")
         video.download()
         finishLabel.configure(text="Downloaded!")
@@ -23,7 +23,9 @@ def on_progress(streams,chunk,bytes_remaining):
     total_size=streams.filesize
     bytes_downloaded = total_size - bytes_remaining
     percentage_of_completion = bytes_downloaded/total_size * 100
-    print(percentage_of_completion)
+    per = str(int(percentage_of_completion))
+    pPercenatge.configure(text=per + "%")
+    pPercenatge.update()
     
     
 
