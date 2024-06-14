@@ -27,7 +27,8 @@ def on_progress(streams,chunk,bytes_remaining):
     pPercenatge.configure(text=per + "%")
     pPercenatge.update()
     
-    
+    #Update Progress bar
+    progressBar.set(float(percentage_of_completion) /100)
 
 # system Settings
 customtkinter.set_appearance_mode("System")
